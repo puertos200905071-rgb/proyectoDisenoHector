@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Killer Instinct: personajes, historia y mecánicas de combate. Proyecto HTML5 y CSS3.">
+
+    <title>Killer Instinct | Inicio</title>
+    <link rel="icon" type="image/png" href="img/icono.png">
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="pagina-inicio">
+    <!-- Dejo la música de esta página sonando de fondo, sin mostrar controles. -->
+    <!-- Algunos navegadores no permiten que empiece sola hasta que el visitante interactúe. -->
+    <audio autoplay loop preload="auto">
+        <source src="audio/MainTheme.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Uso el mismo encabezado en las tres páginas para que no cambie el menú al navegar. -->
+    <header id="encabezado">
+        <div class="contenedor cabecera-contenido">
+            <!-- El símbolo KI y el nombre llevan al inicio; su acabado metálico lo manejo desde CSS. -->
+            <a href="index.html" class="marca" aria-label="Ir al inicio de Killer Instinct">
+                <span class="marca-simbolo" aria-hidden="true">KI</span>
+                <span class="marca-nombre">
+                    <span>KILLER</span>
+                    <strong>INSTINCT</strong>
+                    <small>ULTRATECH // COMBAT SYSTEM</small>
+                </span>
+            </a>
+
+            <!-- El enlace activo cambia según la página. El sitio oficial se abre aparte para no perder este sitio. -->
+            <nav id="menu" aria-label="Menú principal">
+                <a href="index.html" class="activo" aria-current="page">INICIO</a>
+                <a href="personajes.html">PERSONAJES</a>
+                <a href="historia.html">HISTORIA</a>
+                <a href="https://www.ultra-combo.com/" target="_blank" rel="noopener noreferrer">SITIO OFICIAL ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Para abrir con fuerza, dejo a Fulgore junto al título principal. -->
+        <section id="portada" class="hero" aria-labelledby="titulo-principal">
+            <!-- Esta capa me permite poner una textura y algunas luces sin añadir más imágenes. -->
+            <div class="hero-trama" aria-hidden="true"></div>
+            <div class="contenedor hero-grid">
+                <div class="hero-visual">
+                    <!-- Enlazo la imagen con su perfil, así también puedo entrar a Personajes desde la portada. -->
+                    <a href="personajes.html#fulgore" class="hero-fotografia"
+                       aria-label="Conocer a Fulgore en la página de personajes">
+                        <img src="img/fulgore.jpg"
+                             alt="Fulgore, androide de Killer Instinct iluminado en cian y rojo">
+                    </a>
+
+                    <div class="hero-placa" aria-hidden="true">
+                        <span>UNIT 003 / FULGORE</span>
+                        <span>COMBAT READY</span>
+                    </div>
+                </div>
+
+                <div class="hero-contenido">
+                    <p class="indicador"><span aria-hidden="true">◆</span> ULTRATECH // TRANSMISIÓN ACTIVA</p>
+                    <span class="sobrelinea">NO HAY LÍMITES. SOLO INSTINTO.</span>
+                    <h1 id="titulo-principal">DESPIERTA<br>EL <em>INSTINTO.</em></h1>
+                    <span class="corte-luz" aria-hidden="true"></span>
+                    <p class="hero-descripcion">Guerreros legendarios. Tecnología letal. Combates que desafían lo imposible. Entra al universo de Killer Instinct.</p>
+
+                    <!-- Los dos botones llevan a las secciones que quiero mostrar primero. -->
+                    <div class="grupo-botones">
+                        <a class="boton boton-primario" href="personajes.html">ELEGIR LUCHADOR <span aria-hidden="true">↗</span></a>
+                        <a class="boton boton-secundario" href="historia.html">DESCUBRIR HISTORIA <span aria-hidden="true">→</span></a>
+                    </div>
+                    <div class="hero-datos" aria-label="Datos de referencia">
+                        <div><strong>1994</strong><span>ORIGEN</span></div>
+                        <div><strong>03</strong><span>LUCHADORES DESTACADOS</span></div>
+                        <div><strong>∞</strong><span>INSTINTO DE COMBATE</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aquí van los accesos rápidos a Personajes, Historia y Combos. -->
+        <section id="secciones" class="seccion-catalogo contenedor" aria-labelledby="titulo-universo">
+            <div class="titulo-seccion">
+                <span class="codigo-seccion">01 / ACCESO AL ARCHIVO</span>
+                <h2 id="titulo-universo">EXPLORA EL <em>UNIVERSO</em></h2>
+                <span class="linea-seccion" aria-hidden="true"></span>
+            </div>
+            <div class="tarjetas-grid">
+                <article class="tarjeta">
+                    <span class="tarjeta-numero">01 / SELECT</span>
+                    <span class="tarjeta-icono" aria-hidden="true">✦</span>
+                    <h3>PERSONAJES</h3>
+                    <p>Conoce los estilos, motivaciones y capacidades de los guerreros de la arena.</p>
+                    <a href="personajes.html">ABRIR ARCHIVO <span aria-hidden="true">↗</span></a>
+                </article>
+                <article class="tarjeta">
+                    <span class="tarjeta-numero">02 / LEGACY</span>
+                    <span class="tarjeta-icono" aria-hidden="true">⌁</span>
+                    <h3>HISTORIA</h3>
+                    <p>Descubre cómo nació el torneo y cómo evolucionó la franquicia desde 1994.</p>
+                    <a href="historia.html">VER CRONOLOGÍA <span aria-hidden="true">↗</span></a>
+                </article>
+                <article class="tarjeta">
+                    <span class="tarjeta-numero">03 / COMBAT</span>
+                    <span class="tarjeta-icono" aria-hidden="true">⚡</span>
+                    <h3>COMBOS</h3>
+                    <p>Comprende las aperturas, los enlaces, los remates y el Combo Breaker.</p>
+                    <a href="historia.html#combos">EXPLORAR SISTEMA <span aria-hidden="true">↗</span></a>
+                </article>
+            </div>
+        </section>
+
+        <!-- En esta sección mezclo el texto con la imagen del enfrentamiento. -->
+        <section id="presentacion" class="editorial" aria-labelledby="titulo-legado">
+            <div class="contenedor editorial-grid">
+                <div class="editorial-texto">
+                    <span class="codigo-seccion">02 / IDENTIFICACIÓN DE AMENAZA</span>
+                    <h2 id="titulo-legado">DONDE LA<br>TECNOLOGÍA<br>ENCUENTRA AL<br><em>INSTINTO.</em></h2>
+                    <p>La ciencia de Ultratech convive con artes marciales, criaturas extraordinarias y poderes ancestrales. Cada enfrentamiento cuenta una historia.</p>
+                    <div class="aviso-combate">
+                        <strong>COMBO BREAKER DETECTADO</strong>
+                        <span>Un solo instante puede cambiar el resultado de la pelea.</span>
+                    </div>
+                    <a href="historia.html" class="enlace-acento">DESCUBRIR EL LEGADO <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="editorial-media">
+
+                    <a href="historia.html" aria-label="Ver la historia de Killer Instinct">
+                        <img src="img/presentacion.webp"
+                             alt="Fulgore y Jago enfrentados en una escena de combate">
+                    </a>
+                    <span class="media-folio" aria-hidden="true">KI / PROTOCOLO DE COMBATE</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Esta franja separa el contenido general de los luchadores. -->
+        <div id="titulo-luchadores" class="franja-luchadores">
+            <div class="contenedor franja-contenido">
+                <span class="codigo-seccion">03 / LISTA DE COMBATIENTES</span>
+                <h2>ELIGE TU <em>DESTINO</em></h2>
+                <a href="personajes.html">VER FICHAS ↗</a>
+            </div>
+        </div>
+
+        <!-- Las tres fotografías funcionan también como enlaces a las fichas individuales. -->
+        <section id="luchadores-inicio" class="luchadores-seccion contenedor" aria-label="Personajes destacados">
+            <div class="luchadores-grid">
+                <article class="luchador luchador-jago">
+                    <a class="luchador-foto" href="personajes.html#jago" aria-label="Abrir ficha de Jago">
+                        <img src="img/jago.jpg" alt="Jago rodeado de energía cálida">
+                    </a>
+                    <div class="luchador-informacion">
+                        <span>01 / GUERRERO ESPIRITUAL</span>
+                        <h3>JAGO</h3>
+                        <p>Disciplina y dominio marcial.</p>
+                        <a href="personajes.html#jago">VER PERFIL ↗</a>
+                    </div>
+                </article>
+                <article class="luchador luchador-orchid">
+                    <a class="luchador-foto" href="personajes.html#orchid" aria-label="Abrir ficha de Orchid">
+                        <img src="img/orchid.jpg" alt="Orchid con energía amarilla y armas luminosas">
+                    </a>
+                    <div class="luchador-informacion">
+                        <span>02 / AGENTE DE CAMPO</span>
+                        <h3>ORCHID</h3>
+                        <p>Velocidad y precisión.</p>
+                        <a href="personajes.html#orchid">VER PERFIL ↗</a>
+                    </div>
+                </article>
+                <article class="luchador luchador-fulgore">
+                    <a class="luchador-foto" href="personajes.html#fulgore" aria-label="Abrir ficha de Fulgore">
+                        <img src="img/fulgore.jpg" alt="Fulgore equipado con hojas de energía cian">
+                    </a>
+                    <div class="luchador-informacion">
+                        <span>03 / UNIDAD CIBERNÉTICA</span>
+                        <h3>FULGORE</h3>
+                        <p>Potencia y tecnología militar.</p>
+                        <a href="personajes.html#fulgore">VER PERFIL ↗</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="llamado-final">
+            <div class="contenedor llamado-contenido">
+                <div>
+                    <span class="codigo-seccion">CONEXIÓN ESTABLECIDA / COMBAT READY</span>
+                    <h2>EL COMBATE <em>CONTINÚA.</em></h2>
+                </div>
+                <a class="boton boton-primario" href="personajes.html">ENTRAR A LA ARENA <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="pie">
+        <div class="contenedor pie-contenido">
+            <div class="pie-academico">
+                <p>Héctor Puertos Alejo · Matrícula ID26079</p>
+                <p>Arquitectura y Diseño para la Web II · Proyecto final</p>
+            </div>
+            <a href="#encabezado" class="volver-arriba">VOLVER ARRIBA ↑</a>
+        </div>
+    </footer>
+</body>
+</html>

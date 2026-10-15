@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="La historia de Killer Instinct, Ultratech y los conceptos del sistema de combos.">
+
+    <title>Killer Instinct | Historia</title>
+    <link rel="icon" type="image/png" href="img/icono.png">
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="pagina-historia">
+    <!-- Uso este tema como música de fondo de Historia; se repite sin mostrar controles. -->
+    <audio autoplay loop preload="auto">
+        <source src="audio/Score.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Reutilizo el encabezado; ahora es Historia la opción marcada del menú. -->
+    <header id="encabezado">
+        <div class="contenedor cabecera-contenido">
+
+            <a href="index.html" class="marca" aria-label="Ir al inicio de Killer Instinct">
+                <span class="marca-simbolo" aria-hidden="true">KI</span>
+                <span class="marca-nombre">
+                    <span>KILLER</span>
+                    <strong>INSTINCT</strong>
+                    <small>ULTRATECH // COMBAT SYSTEM</small>
+                </span>
+            </a>
+
+            <nav id="menu" aria-label="Menú principal">
+                <a href="index.html">INICIO</a>
+                <a href="personajes.html">PERSONAJES</a>
+                <a href="historia.html" class="activo" aria-current="page">HISTORIA</a>
+                <a href="https://www.ultra-combo.com/" target="_blank" rel="noopener noreferrer">SITIO OFICIAL ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- La portada interior presenta el tema antes de entrar a la cronología. -->
+        <section class="interior-hero interior-historia" aria-labelledby="titulo-historia">
+            <div class="contenedor interior-contenido">
+                <span class="codigo-seccion">ARCHIVO / 03 · LEGADO DE COMBATE</span>
+                <h1 id="titulo-historia">EL INSTINTO<br><em>NO MUERE.</em></h1>
+                <p>Un viaje desde los salones arcade hasta el regreso de una franquicia emblemática.</p>
+                <a class="boton boton-secundario" href="#cronologia">VER CRONOLOGÍA ↓</a>
+            </div>
+        </section>
+
+        <!-- Acompaño la explicación inicial con una fotografía que enlaza a la línea del tiempo. -->
+        <section class="contenedor historia-introduccion" aria-labelledby="titulo-origen">
+            <div class="historia-texto">
+                <span class="codigo-seccion">01 / INICIO DE TRANSMISIÓN</span>
+                <h2 id="titulo-origen">EL PODER DE <em>ULTRATECH.</em></h2>
+                <p>Killer Instinct debutó en 1994, desarrollado originalmente por Rare. Su universo une ciencia ficción, artes marciales, criaturas extraordinarias y el torneo impulsado por la corporación Ultratech.</p>
+                <p>El sistema de combos, la velocidad de los encuentros y su fuerte personalidad audiovisual lo convirtieron en una franquicia reconocible.</p>
+                <a class="enlace-acento" href="#cronologia">REVISAR LÍNEA DEL TIEMPO ↗</a>
+            </div>
+            <a class="historia-imagen" href="#cronologia" aria-label="Continuar a la cronología de Killer Instinct">
+                <img src="img/portada.jpg" alt="Emblema Killer Instinct sobre un fondo oscuro y rojo">
+                <span class="media-folio" aria-hidden="true">ARCHIVE / ULTRATECH · 1994—2013</span>
+            </a>
+        </section>
+
+        <!-- Ordeno las entregas por año para que se note cómo fue cambiando el juego. -->
+        <section id="cronologia" class="cronologia" aria-labelledby="titulo-cronologia">
+            <div class="contenedor">
+                <span class="codigo-seccion">02 / REGISTRO HISTÓRICO</span>
+                <h2 id="titulo-cronologia">TRES ERAS.<br><em>UN LEGADO.</em></h2>
+                <div class="cronologia-grid">
+                    <article class="hito"><span class="hito-clave">ARCHIVO 01</span><strong>1994</strong><h3>KILLER INSTINCT</h3><p>El primer juego llega a las salas arcade con combates y combos característicos.</p></article>
+                    <article class="hito"><span class="hito-clave">ARCHIVO 02</span><strong>1996</strong><h3>KILLER INSTINCT 2</h3><p>La segunda entrega expande el universo y presenta nuevos personajes.</p></article>
+                    <article class="hito"><span class="hito-clave">ARCHIVO 03</span><strong>2013</strong><h3>KILLER INSTINCT</h3><p>La serie regresa con una nueva etapa de combates para Xbox One.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservo el id="combos" porque varios botones de Inicio llegan directamente aquí. -->
+        <section id="combos" class="seccion-combos contenedor" aria-labelledby="titulo-combos">
+            <div class="combos-encabezado">
+                <div>
+                    <span class="codigo-seccion">03 / SISTEMA DE COMBATE</span>
+                    <h2 id="titulo-combos">EL ARTE DEL <em>COMBO.</em></h2>
+                </div>
+                <span class="combos-sello" aria-hidden="true">COMBO<br>BREAKER</span>
+            </div>
+            <p>En Killer Instinct, una secuencia puede iniciarse, prolongarse y finalizar mediante movimientos distintos. El rival puede intentar interrumpir ciertos ataques con un <strong>Combo Breaker</strong>.</p>
+            <!-- Si la tabla queda ancha en móvil, puedo moverla horizontalmente sin comprimir los datos. -->
+            <div class="tabla-scroll">
+                <table>
+                    <caption>Conceptos básicos del sistema de combos</caption>
+                    <thead><tr><th scope="col">CONCEPTO</th><th scope="col">FUNCIONAMIENTO GENERAL</th></tr></thead>
+                    <tbody>
+                        <tr><td>Opener</td><td>Movimiento que da inicio a una secuencia de combo.</td></tr>
+                        <tr><td>Auto Double</td><td>Golpes automáticos que aparecen después de determinados movimientos.</td></tr>
+                        <tr><td>Linker</td><td>Movimiento que permite prolongar la secuencia.</td></tr>
+                        <tr><td>Ender</td><td>Movimiento que remata el combo.</td></tr>
+                        <tr><td>Combo Breaker</td><td>Acción defensiva que puede interrumpir el combo rival.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <a class="boton boton-primario" href="personajes.html">CONOCER COMBATIENTES <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+
+    <footer id="pie">
+        <div class="contenedor pie-contenido">
+            <div class="pie-academico">
+                <p>Héctor Puertos Alejo · Matrícula ID26079</p>
+                <p>Arquitectura y Diseño para la Web II · Proyecto final</p>
+            </div>
+            <a href="#encabezado" class="volver-arriba">VOLVER ARRIBA ↑</a>
+        </div>
+    </footer>
+</body>
+</html>

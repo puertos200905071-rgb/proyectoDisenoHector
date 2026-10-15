@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Descubre los perfiles de Jago, Orchid y Fulgore en Killer Instinct.">
+
+    <title>Killer Instinct | Personajes</title>
+    <link rel="icon" type="image/png" href="img/icono.png">
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="pagina-personajes">
+    <!-- Dejo la música de esta página sonando de fondo, sin mostrar controles. -->
+    <!-- Algunos navegadores no permiten que empiece sola hasta que el visitante interactúe. -->
+    <audio autoplay loop preload="auto">
+        <source src="audio/PlayerSelect.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Mantengo el mismo encabezado y solo cambio cuál botón aparece seleccionado. -->
+    <header id="encabezado">
+        <div class="contenedor cabecera-contenido">
+
+            <a href="index.html" class="marca" aria-label="Ir al inicio de Killer Instinct">
+                <span class="marca-simbolo" aria-hidden="true">KI</span>
+                <span class="marca-nombre">
+                    <span>KILLER</span>
+                    <strong>INSTINCT</strong>
+                    <small>ULTRATECH // COMBAT SYSTEM</small>
+                </span>
+            </a>
+
+            <nav id="menu" aria-label="Menú principal">
+                <a href="index.html">INICIO</a>
+                <a href="personajes.html" class="activo" aria-current="page">PERSONAJES</a>
+                <a href="historia.html">HISTORIA</a>
+                <a href="https://www.ultra-combo.com/" target="_blank" rel="noopener noreferrer">SITIO OFICIAL ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- La entrada de esta página es más corta para dejar espacio a los perfiles. -->
+        <section class="interior-hero interior-personajes" aria-labelledby="titulo-personajes">
+            <div class="contenedor interior-contenido">
+                <span class="codigo-seccion">ARCHIVO / 02 · LISTA DE COMBATIENTES</span>
+                <h1 id="titulo-personajes">ELIGE A TU<br><em>LUCHADOR.</em></h1>
+                <p>Tres estilos de combate, tres identidades y una sola arena. Consulta cada expediente.</p>
+                <a class="boton boton-secundario" href="#jago">EXPLORAR EXPEDIENTES ↓</a>
+            </div>
+        </section>
+
+        <!-- Cada luchador lleva su propia sección y puedo llegar a ella con un enlace directo. -->
+        <section id="destacados" class="contenedor perfiles" aria-label="Expedientes de los luchadores">
+            <article id="jago" class="perfil perfil-jago">
+                <div class="perfil-imagen">
+                    <!-- Al pulsar la fotografía bajo a la tabla donde comparo sus características. -->
+                    <a href="#datos-personajes" aria-label="Ver datos comparativos de Jago">
+                        <img src="img/jago.jpg" alt="Jago, artista marcial de Killer Instinct">
+                    </a>
+                </div>
+                <div class="perfil-texto">
+                    <span class="codigo-seccion">01 / MAESTRO DE COMBATE</span>
+                    <h2>JAGO</h2>
+                    <p>Guerrero dedicado a las artes marciales. La disciplina y su conexión con fuerzas espirituales definen su historia y sus técnicas de combate.</p>
+                    <div class="perfil-especialidad"><span>ESPECIALIDAD</span><strong>ARTES MARCIALES · ENERGÍA ESPIRITUAL</strong></div>
+                    <a class="enlace-acento" href="#datos-personajes">COMPARAR CAPACIDADES ↗</a>
+                </div>
+            </article>
+
+            <article id="orchid" class="perfil perfil-orchid perfil-inverso">
+                <div class="perfil-imagen">
+                    <a href="#datos-personajes" aria-label="Ver datos comparativos de Orchid">
+                        <img src="img/orchid.jpg" alt="Orchid, luchadora ágil y agente de investigación">
+                    </a>
+                </div>
+                <div class="perfil-texto">
+                    <span class="codigo-seccion">02 / AGENTE DE CAMPO</span>
+                    <h2>ORCHID</h2>
+                    <p>Combatiente que investiga las actividades de Ultratech. Se distingue por la movilidad, la precisión y el uso de armas durante sus enfrentamientos.</p>
+                    <div class="perfil-especialidad"><span>ESPECIALIDAD</span><strong>AGILIDAD · TÉCNICA · VELOCIDAD</strong></div>
+                    <a class="enlace-acento" href="#datos-personajes">COMPARAR CAPACIDADES ↗</a>
+                </div>
+            </article>
+
+            <article id="fulgore" class="perfil perfil-fulgore">
+                <div class="perfil-imagen">
+                    <a href="#datos-personajes" aria-label="Ver datos comparativos de Fulgore">
+                        <img src="img/fulgore.jpg" alt="Fulgore, prototipo cibernético de Ultratech">
+                    </a>
+                </div>
+                <div class="perfil-texto">
+                    <span class="codigo-seccion">03 / PROTOTIPO DE ULTRATECH</span>
+                    <h2>FULGORE</h2>
+                    <p>Unidad cibernética fabricada por Ultratech. Combina fuerza mecánica, armamento incorporado y sistemas de combate altamente especializados.</p>
+                    <div class="perfil-especialidad"><span>ESPECIALIDAD</span><strong>TECNOLOGÍA · FUERZA · ARMAMENTO</strong></div>
+                    <a class="enlace-acento" href="#datos-personajes">COMPARAR CAPACIDADES ↗</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- La tabla resume los datos sin repetir todo lo que ya conté en las fichas. -->
+        <section id="datos-personajes" class="seccion-tabla contenedor" aria-labelledby="titulo-tabla">
+            <span class="codigo-seccion">DOSSIER / COMPARATIVA</span>
+            <h2 id="titulo-tabla">DATOS DE <em>COMBATE.</em></h2>
+            <p>Resumen descriptivo de los personajes destacados; no representa estadísticas oficiales.</p>
+            <!-- Dejo este contenedor para desplazar la tabla de lado si se abre en un celular. -->
+            <div class="tabla-scroll">
+                <table>
+                    <caption>Comparación de personajes de Killer Instinct</caption>
+                    <thead>
+                        <tr><th scope="col">COMBATIENTE</th><th scope="col">IDENTIDAD</th><th scope="col">RASGO PRINCIPAL</th><th scope="col">ORIGEN / ROL</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Jago</td><td>Guerrero</td><td>Técnicas espirituales</td><td>Artista marcial</td></tr>
+                        <tr><td>Orchid</td><td>Agente</td><td>Agilidad y precisión</td><td>Investigadora de Ultratech</td></tr>
+                        <tr><td>Fulgore</td><td>Unidad cibernética</td><td>Armas integradas</td><td>Creación de Ultratech</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer id="pie">
+        <div class="contenedor pie-contenido">
+            <div class="pie-academico">
+                <p>Héctor Puertos Alejo · Matrícula ID26079</p>
+                <p>Arquitectura y Diseño para la Web II · Proyecto final</p>
+            </div>
+            <a href="#encabezado" class="volver-arriba">VOLVER ARRIBA ↑</a>
+        </div>
+    </footer>
+</body>
+</html>

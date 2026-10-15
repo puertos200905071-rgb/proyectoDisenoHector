@@ -1,0 +1,1462 @@
+/* KILLER INSTINCT / ULTRATECH — Estilos del sitio. */
+
+/* Reúno los colores y medidas que se repiten. Si quiero ajustar el aspecto general, los cambio aquí. */
+:root {
+
+    --negro: #050910;
+    --fondo: #070d17;
+    --panel: #101c2b;
+    --panel-alto: #162638;
+    --acero: #294157;
+
+    --cian: #2bdcf5;
+    --cian-suave: #86ecf9;
+    --rojo: #db264b;
+    --rojo-intenso: #fa3c61;
+    --dorado: #e6b956;
+
+    --blanco: #f0f6fa;
+    --plata: #d4e0eb;
+    --gris: #a4b4c5;
+    --gris-tenue: #8396ac;
+
+    --borde: #2b465d;
+    --brillo-cian: rgba(43, 220, 245, .32);
+    --brillo-rojo: rgba(219, 38, 75, .34);
+    --ancho-contenido: 1220px;
+}
+
+/* Primero normalizo cajas, márgenes y enlaces para tener el mismo punto de partida. */
+*, *::before, *::after {
+
+    box-sizing: border-box;
+}
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+    overflow-x: hidden;
+
+    background: radial-gradient(circle at 70% 0, #112435 0, transparent 620px), var(--fondo);
+
+    color: var(--blanco);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.65;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Con Tab dejo visible el enlace seleccionado, sin depender solamente del mouse. */
+a:focus-visible {
+    outline: 3px solid var(--cian);
+    outline-offset: 4px;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+h1, h2, h3 {
+    font-family: Impact, "Arial Narrow", "Arial Black", sans-serif;
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: .025em;
+}
+
+/* Este ancho máximo evita que el contenido quede demasiado extendido en monitores grandes. */
+.contenedor {
+    width: min(calc(100% - 64px), var(--ancho-contenido));
+    margin-inline: auto;
+}
+
+em {
+    color: var(--cian);
+    font-style: normal;
+}
+
+/* El encabezado se repite en las tres páginas; aquí defino la marca y el menú. */
+#encabezado {
+
+    position: relative;
+    z-index: 5;
+    background: #0a1522;
+
+    border-top: 3px solid var(--cian);
+    border-bottom: 1px solid #314e64;
+    box-shadow: 0 12px 45px #0005;
+}
+
+.cabecera-contenido {
+
+    min-height: 101px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.marca {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    flex-shrink: 0;
+}
+
+.marca-simbolo {
+    /* Al recortar las esquinas del símbolo KI consigo un acabado menos cuadrado. */
+    display: grid;
+    place-items: center;
+    width: 65px;
+    height: 65px;
+    clip-path: polygon(19% 0, 100% 0, 81% 100%, 0 100%);
+    background: linear-gradient(135deg, #95effc, var(--cian) 46%, #078aaa);
+    color: #041320;
+
+    font: italic 900 31px/1 Impact, "Arial Black", sans-serif;
+    letter-spacing: -.06em;
+    text-shadow: 1px 1px 0 #ffffff77;
+    box-shadow: 0 0 28px var(--brillo-cian);
+}
+
+.marca-nombre {
+
+    display: flex;
+    flex-direction: column;
+    font-family: Impact, "Arial Narrow", "Arial Black", sans-serif;
+    font-size: 28px;
+    line-height: .85;
+    letter-spacing: .075em;
+}
+
+.marca-nombre > span, .marca-nombre strong {
+    /* El degradado del texto imita el reflejo de una superficie metálica. */
+    background: linear-gradient(180deg, #ffffff 5%, #b4c1cc 55%, #f3f8fb 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.marca-nombre strong {
+
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.marca-nombre small {
+
+    margin-top: 8px;
+    color: var(--cian);
+    font: 700 8px/1.3 "Segoe UI", Arial, sans-serif;
+    letter-spacing: .22em;
+}
+
+#menu {
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+#menu a {
+    /* Los botones del menú usan clip-path para cortar dos esquinas, sin necesitar imágenes. */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 47px;
+    padding: 0 19px;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    background: #14283a;
+    border-bottom: 2px solid #365b70;
+    color: #e8f3fa;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .13em;
+
+    transition: background .22s ease, color .22s ease, filter .22s ease;
+}
+
+#menu a:hover {
+
+    background: #1b4b65;
+    color: #fff;
+    filter: drop-shadow(0 0 8px var(--brillo-cian));
+}
+
+#menu a.activo {
+    /* El botón rojo me indica en qué página estoy. */
+    background: linear-gradient(110deg, #c71f46, #ef3760);
+    border-color: #ff7b91;
+    color: #fff;
+}
+
+#menu a:last-child {
+
+    background: transparent;
+    border: 1px solid #42627b;
+    border-bottom: 2px solid var(--cian);
+}
+
+#menu a:last-child:hover {
+    background: #143349;
+}
+
+/* En Inicio reparto la portada entre la fotografía de Fulgore y el texto. */
+.hero {
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 635px;
+
+    background:
+        radial-gradient(ellipse at 78% 40%, #12617a55, transparent 49%),
+        linear-gradient(112deg, #06101b 5%, #0c2535 60%, #06111d 100%);
+    border-bottom: 1px solid #2d495e;
+}
+
+.hero-trama {
+    /* La trama del fondo está dibujada con CSS; no necesito guardar otra imagen. */
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .52;
+    background:
+        repeating-linear-gradient(116deg, transparent 0 85px, #42ceec14 86px, transparent 87px 170px),
+        repeating-linear-gradient(90deg, transparent 0 79px, #52dffc0c 80px, transparent 81px 160px);
+}
+
+.hero-grid {
+
+    position: relative;
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    align-items: center;
+    gap: clamp(28px, 5vw, 82px);
+    min-height: 635px;
+}
+
+.hero-visual {
+
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: 38px 0;
+    min-width: 0;
+}
+
+.hero-fotografia {
+    /* Recorto el marco de Fulgore y dejo un borde cian que lo separa del fondo. */
+    display: block;
+    width: 100%;
+    height: 548px;
+    overflow: hidden;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 86% 100%, 0 100%);
+    background: #0e202b;
+    border-left: 4px solid var(--cian);
+    box-shadow: -15px 0 45px #00b9df33;
+}
+
+.hero-fotografia::after {
+    /* La sombra de las orillas ayuda a integrar la foto con la portada. */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #06131c11, transparent 60%, #06131c55);
+    pointer-events: none;
+}
+
+.hero-fotografia img {
+    /* Uso object-fit para llenar el marco sin estirar la fotografía. */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 31% center;
+    filter: saturate(1.08) contrast(1.05);
+    transition: transform .55s ease;
+}
+
+.hero-fotografia:hover img {
+
+    transform: scale(1.045);
+}
+
+.hero-placa {
+
+    position: absolute;
+    left: 18px;
+    right: 50px;
+    bottom: 58px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: #d7faff;
+    text-shadow: 0 2px 8px #000;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    pointer-events: none;
+}
+
+.hero-placa span:last-child {
+    color: var(--cian);
+}
+
+.hero-contenido {
+
+    position: relative;
+    z-index: 1;
+    padding: 45px 0 55px;
+}
+
+.indicador, .codigo-seccion {
+
+    display: inline-block;
+    color: var(--cian);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.indicador span {
+
+    margin-right: 8px;
+    color: var(--rojo-intenso);
+    text-shadow: 0 0 13px var(--rojo);
+}
+
+.sobrelinea {
+
+    display: block;
+    margin-top: 33px;
+    color: #aabdd0;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .2em;
+}
+
+.hero-contenido h1 {
+    /* Con clamp el título se adapta al espacio disponible sin definir un tamaño para cada pantalla. */
+    margin: 13px 0 19px;
+    font-size: clamp(62px, 6.4vw, 99px);
+    line-height: .98;
+    letter-spacing: .008em;
+    text-transform: uppercase;
+    text-shadow: 2px 4px 0 #07111c;
+}
+
+.hero-contenido h1 em {
+
+    color: var(--cian);
+    text-shadow: 0 0 34px var(--brillo-cian);
+}
+
+.corte-luz {
+
+    display: block;
+    width: 116px;
+    height: 4px;
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, var(--rojo) 0 36%, var(--cian) 36% 100%);
+    box-shadow: 0 0 13px var(--brillo-cian);
+}
+
+.hero-descripcion {
+
+    max-width: 480px;
+    margin-bottom: 27px;
+    color: var(--plata);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.grupo-botones {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.boton {
+    /* Estos estilos sirven de base para todos los botones grandes del sitio. */
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 23px;
+    min-height: 53px;
+    padding: 0 23px;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .105em;
+    transition: background .2s ease, transform .2s ease, filter .2s ease;
+}
+
+.boton:hover {
+    /* Al pasar el cursor les doy una elevación corta y un brillo, sin movimientos exagerados. */
+    transform: translateY(-3px);
+    filter: brightness(1.13) drop-shadow(0 7px 11px #0008);
+}
+
+.boton-primario {
+    /* El rojo queda para la acción principal; el secundario tendrá un tono más discreto. */
+    background: linear-gradient(110deg, #bb1d42, var(--rojo-intenso));
+    color: #fff;
+}
+
+.boton-secundario {
+
+    background: #25455e;
+    color: #f3faff;
+    border-bottom: 2px solid var(--cian);
+}
+
+.boton span, .enlace-acento span {
+
+    font-size: 19px;
+    line-height: 1;
+}
+
+.hero-datos {
+
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+    padding-top: 18px;
+    border-top: 1px solid #4abfd532;
+}
+
+.hero-datos div {
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hero-datos strong {
+
+    color: var(--cian);
+    font: 32px/1 Impact, "Arial Black", sans-serif;
+}
+
+.hero-datos span {
+    color: var(--gris);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .14em;
+}
+
+/* Tres tarjetas llevan a las partes principales del sitio. */
+.seccion-catalogo {
+
+    padding-block: 95px 110px;
+}
+
+.titulo-seccion {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 33px;
+}
+
+.titulo-seccion h2 {
+
+    margin: 0;
+    font-size: clamp(42px, 4.3vw, 62px);
+}
+
+.linea-seccion {
+
+    flex: 1;
+    min-width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--borde), transparent);
+}
+
+.tarjetas-grid {
+    /* Uso una cuadrícula de tres columnas que después se simplifica en móvil. */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    /* Cada tarjeta tiene un panel oscuro y una línea de color para distinguirla del fondo. */
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 290px;
+    padding: 32px 29px;
+    background: linear-gradient(146deg, #14283b, #0d1927 75%);
+    border: 1px solid var(--borde);
+    border-top: 3px solid var(--cian);
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.tarjeta::after {
+    /* La diagonal del panel sale de un pseudoelemento; no es un archivo de imagen. */
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -90px;
+    bottom: -130px;
+    width: 240px;
+    height: 240px;
+    transform: rotate(45deg);
+    border: 30px solid #1a8fac20;
+}
+
+.tarjeta:hover {
+    /* Este cambio leve al pasar el cursor ayuda a identificar la tarjeta elegida. */
+    transform: translateY(-7px);
+    border-color: #64cfe3;
+    box-shadow: 0 19px 42px #0009, 0 0 24px #16bce31b;
+}
+
+.tarjeta-numero {
+    color: var(--cian);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .18em;
+}
+
+.tarjeta-icono {
+
+    position: absolute;
+    top: 19px;
+    right: 27px;
+    color: var(--cian);
+    font-size: 39px;
+    line-height: 1;
+}
+
+.tarjeta h3 {
+    margin: 36px 0 14px;
+    font-size: 38px;
+}
+
+.tarjeta p {
+    max-width: 310px;
+    color: var(--gris);
+    font-size: 14px;
+}
+
+.tarjeta a, .enlace-acento {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 12px;
+    color: var(--cian);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .13em;
+}
+
+.tarjeta a:hover, .enlace-acento:hover {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: var(--cian);
+    text-underline-offset: 5px;
+}
+
+/* Aquí muestro el texto sobre Ultratech a un lado del enfrentamiento. */
+.editorial {
+
+    background: linear-gradient(100deg, #0b1725, #112436);
+    border-block: 1px solid var(--borde);
+}
+
+.editorial-grid {
+    /* La cuadrícula me deja controlar ambas columnas y apilarlas cuando no caben. */
+    display: grid;
+    grid-template-columns: .94fr 1.06fr;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: center;
+    padding-block: 103px;
+}
+
+.editorial-texto h2 {
+
+    margin: 20px 0 25px;
+    font-size: clamp(49px, 5.1vw, 78px);
+}
+
+.editorial-texto > p {
+    max-width: 475px;
+    color: var(--gris);
+    font-size: 16px;
+}
+
+.aviso-combate {
+    /* Resalto este aviso con rojo para romper un poco la repetición del cian. */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 19px 21px;
+    margin: 25px 0 13px;
+    background: #172b3f;
+    border-left: 4px solid var(--rojo);
+}
+
+.aviso-combate strong {
+    color: #f0f6fa;
+    font-size: 12px;
+    letter-spacing: .12em;
+}
+
+.aviso-combate span {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+.editorial-media {
+    /* El marco y la sombra separan la imagen del fondo. */
+    position: relative;
+    min-width: 0;
+    border: 1px solid var(--cian);
+    box-shadow: 25px 24px 0 #07121b, 0 20px 65px #0009;
+}
+
+.editorial-media a {
+    display: block;
+    overflow: hidden;
+}
+
+.editorial-media img {
+    /* El recorte mantiene las proporciones aunque la foto tenga otro tamaño. */
+    width: 100%;
+    aspect-ratio: 1.26;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.editorial-media a:hover img, .historia-imagen:hover img {
+
+    transform: scale(1.035);
+}
+
+.media-folio {
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 9px 14px;
+    background: linear-gradient(90deg, #c71942, #ef375b);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    pointer-events: none;
+}
+
+/* Esta franja funciona como corte entre la presentación y las fichas. */
+.franja-luchadores {
+    background: linear-gradient(105deg, #0c293e, #174861, #0b263a);
+    border-block: 1px solid #46758c;
+}
+
+.franja-contenido {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    min-height: 119px;
+}
+
+.franja-contenido h2 {
+    margin: 0;
+    font-size: clamp(42px, 4.5vw, 65px);
+    white-space: nowrap;
+}
+
+.franja-contenido em {
+    /* Pongo un acento dorado para que toda la página no dependa solo del azul. */
+    color: #f1c66b;
+}
+
+.franja-contenido > a {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .15em;
+    white-space: nowrap;
+}
+
+/* Los personajes destacados comparten una misma cuadrícula. */
+.luchadores-seccion {
+    padding-block: 82px 100px;
+}
+
+.luchadores-grid {
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.luchador {
+
+    position: relative;
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.luchador:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 38px #0008;
+}
+
+.luchador-jago { border-top: 3px solid var(--dorado); }
+.luchador-orchid { border-top: 3px solid #f0dc74; }
+.luchador-fulgore { border-top: 3px solid var(--cian); }
+
+.luchador-foto {
+
+    position: relative;
+    display: block;
+    height: 300px;
+    overflow: hidden;
+}
+
+.luchador-foto::after {
+    /* Oscurezco la parte baja de la foto para unirla visualmente con la información. */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, var(--panel), transparent 62%);
+    pointer-events: none;
+}
+
+.luchador-foto img {
+    /* Igualo la altura de las fotos para que las tarjetas se vean ordenadas. */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 28% center;
+    transition: transform .5s ease, filter .5s ease;
+}
+
+.luchador:hover .luchador-foto img {
+    transform: scale(1.075);
+    filter: saturate(1.15);
+}
+
+.luchador-informacion {
+
+    position: relative;
+    padding: 21px 27px 29px;
+}
+
+.luchador-informacion > span {
+    color: var(--cian);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .16em;
+}
+
+.luchador-informacion h3 {
+    margin: 9px 0 5px;
+    font-size: 46px;
+}
+
+.luchador-informacion p {
+    margin-bottom: 12px;
+    color: var(--gris);
+    font-size: 14px;
+}
+
+.luchador-informacion a {
+    color: var(--cian);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .15em;
+}
+
+.luchador-informacion a:hover {
+    color: #fff;
+}
+
+.llamado-final {
+    background: linear-gradient(110deg, #0f1d2c, #132d40);
+    border-top: 1px solid var(--borde);
+}
+
+.llamado-contenido {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding-block: 62px;
+}
+
+.llamado-contenido h2 {
+    margin: 11px 0 0;
+    font-size: clamp(43px, 4.7vw, 66px);
+}
+
+.llamado-contenido h2 em {
+    color: var(--rojo-intenso);
+}
+
+/* Las páginas interiores usan una portada más compacta que la de Inicio. */
+.interior-hero {
+
+    position: relative;
+    overflow: hidden;
+    min-height: 455px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--borde);
+    background:
+        repeating-linear-gradient(111deg, transparent 0 100px, #2bdcf510 101px, transparent 102px 180px),
+        radial-gradient(ellipse at 72% 48%, #165a7955, transparent 50%),
+        linear-gradient(105deg, #08131f, #122d42);
+}
+
+.interior-hero::after {
+    /* El KI gigante es un detalle de fondo, por eso lo dejo tenue detrás del contenido. */
+    content: "KI";
+    position: absolute;
+    right: 7%;
+    top: -100px;
+    color: #9cedfa0a;
+    font: italic 400 430px Impact, sans-serif;
+    pointer-events: none;
+}
+
+.interior-historia {
+    /* Para Historia uso una iluminación más rojiza y así la distingo de Personajes. */
+    background:
+        repeating-linear-gradient(111deg, transparent 0 100px, #2bdcf510 101px, transparent 102px 180px),
+        radial-gradient(ellipse at 74% 44%, #70253a88, transparent 49%),
+        linear-gradient(115deg, #07121e, #231624);
+}
+
+.interior-contenido {
+    position: relative;
+    z-index: 1;
+    padding-block: 70px;
+}
+
+.interior-contenido h1 {
+
+    margin: 19px 0;
+    font-size: clamp(70px, 8vw, 126px);
+    letter-spacing: .005em;
+}
+
+.interior-contenido p {
+    max-width: 690px;
+    color: var(--plata);
+    font-size: 17px;
+}
+
+.interior-contenido .boton {
+    margin-top: 13px;
+}
+
+/* Cada perfil combina una foto grande con la información del luchador. */
+.perfiles {
+    padding-top: 40px;
+}
+
+.perfil {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(30px, 6vw, 95px);
+    padding-block: 66px;
+    border-bottom: 1px solid var(--borde);
+    scroll-margin-top: 20px;
+}
+
+.perfil-inverso .perfil-imagen {
+    /* En Orchid invierto las columnas para que los perfiles no tengan todos el mismo acomodo. */
+    order: 2;
+}
+
+.perfil-imagen {
+
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #4c7c92;
+    box-shadow: 22px 23px 0 #101c2b, 0 22px 50px #0007;
+}
+
+.perfil-imagen a {
+    display: block;
+    overflow: hidden;
+}
+
+.perfil-imagen img {
+    width: 100%;
+    aspect-ratio: 1.4;
+    object-fit: cover;
+    object-position: 26% center;
+    transition: transform .45s ease;
+}
+
+.perfil-imagen a:hover img {
+    transform: scale(1.04);
+}
+
+.perfil-texto h2 {
+    margin: 15px 0 20px;
+    font-size: clamp(72px, 8vw, 122px);
+}
+
+.perfil-texto > p {
+    max-width: 500px;
+    color: var(--gris);
+    font-size: 17px;
+}
+
+.perfil-especialidad {
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 26px 0 14px;
+    padding: 16px 20px;
+    border-left: 3px solid var(--cian);
+    background: #142638;
+}
+
+.perfil-especialidad span {
+    color: var(--gris-tenue);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .16em;
+}
+
+.perfil-especialidad strong {
+    color: var(--plata);
+    font-size: 12px;
+    letter-spacing: .08em;
+}
+
+.perfil-jago .perfil-especialidad { border-color: var(--dorado); }
+.perfil-orchid .perfil-especialidad { border-color: #f0dc74; }
+.perfil-fulgore .perfil-especialidad { border-color: var(--cian); }
+
+/* Las tablas conservan el estilo oscuro de los demás paneles. */
+.seccion-tabla, .seccion-combos {
+    padding-block: 90px 112px;
+}
+
+.seccion-tabla h2, .seccion-combos h2, .historia-texto h2, .cronologia h2 {
+    margin: 17px 0 24px;
+    font-size: clamp(52px, 6vw, 83px);
+}
+
+.seccion-tabla > p, .seccion-combos > p {
+    max-width: 750px;
+    color: var(--gris);
+    font-size: 16px;
+}
+
+.tabla-scroll {
+    /* Prefiero permitir desplazamiento lateral antes que hacer ilegibles las columnas en un teléfono. */
+    width: 100%;
+    overflow-x: auto;
+    margin: 32px 0;
+    border: 1px solid var(--borde);
+}
+
+table {
+
+    width: 100%;
+    min-width: 660px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+caption {
+
+    padding: 14px 18px;
+    background: #13283b;
+    color: var(--gris);
+    font-size: 12px;
+    text-align: left;
+}
+
+th {
+
+    padding: 20px;
+    background: #19465a;
+    color: #f0fbff;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: .09em;
+}
+
+td {
+
+    padding: 19px 20px;
+    color: var(--plata);
+    border-bottom: 1px solid var(--borde);
+}
+
+tbody tr:nth-child(even) {
+    /* Alterno ligeramente el tono de las filas para seguir mejor los datos. */
+    background: #101e2e;
+}
+
+tbody tr:hover {
+    background: #183147;
+}
+
+/* En Historia pongo el relato primero y las fechas después. */
+.historia-introduccion {
+
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    align-items: center;
+    gap: clamp(28px, 5vw, 85px);
+    padding-block: 110px;
+}
+
+.historia-texto p {
+    max-width: 545px;
+    color: var(--gris);
+    font-size: 16px;
+}
+
+.historia-imagen {
+
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    box-shadow: 0 22px 60px #000a;
+}
+
+.historia-imagen img {
+    width: 100%;
+    aspect-ratio: 1.45;
+    object-fit: cover;
+    transition: transform .45s ease;
+}
+
+/* La cronología se divide en tres momentos del juego. */
+.cronologia {
+    padding-block: 92px 104px;
+    background: #0c1928;
+    border-block: 1px solid var(--borde);
+}
+
+.cronologia-grid {
+    /* Una línea y sus marcadores conectan los años de la cronología. */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 39px;
+}
+
+.hito {
+    position: relative;
+    min-height: 310px;
+    padding: 35px 29px;
+    background: linear-gradient(150deg, #162c40, #101c29);
+    border: 1px solid var(--borde);
+    border-top: 4px solid var(--cian);
+}
+
+.hito::before {
+
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 28px;
+    width: 13px;
+    height: 13px;
+    transform: rotate(45deg);
+    background: var(--cian);
+    box-shadow: 0 0 14px var(--brillo-cian);
+}
+
+.hito-clave {
+    color: var(--gris-tenue);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .15em;
+}
+
+.hito > strong {
+
+    display: block;
+    margin: 20px 0 15px;
+    color: var(--cian);
+    font: 86px/.9 Impact, sans-serif;
+}
+
+.hito h3 {
+    margin-bottom: 12px;
+    font-size: 31px;
+}
+
+.hito p {
+    color: var(--gris);
+    font-size: 14px;
+}
+
+/* Este apartado tiene su propia sección porque Inicio enlaza directamente a #combos. */
+.seccion-combos {
+    scroll-margin-top: 16px;
+}
+
+.combos-encabezado {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.combos-sello {
+
+    display: grid;
+    place-items: center;
+    min-width: 160px;
+    min-height: 85px;
+    padding: 12px 18px;
+    transform: skew(-9deg);
+    border: 2px solid var(--rojo);
+    background: #431529;
+    color: #ffdce6;
+    font: 34px/.96 Impact, sans-serif;
+    text-align: center;
+    text-shadow: 0 0 12px var(--brillo-rojo);
+}
+
+/* Al final dejo mis datos y el regreso al encabezado. */
+#pie {
+    background: #04080e;
+    border-top: 1px solid var(--borde);
+}
+
+.pie-contenido {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    min-height: 132px;
+    padding-block: 27px;
+}
+
+.pie-academico p {
+    margin: 0;
+    color: var(--gris-tenue);
+    font-size: 12px;
+}
+
+.volver-arriba {
+    color: var(--cian);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .12em;
+}
+
+/* En pantallas medianas doy más espacio al menú y reduzco algunas medidas. */
+@media (max-width: 1100px) {
+    .cabecera-contenido {
+
+        flex-wrap: wrap;
+        padding-block: 18px;
+    }
+
+    #menu {
+        justify-content: flex-start;
+    }
+
+    .hero-grid {
+        gap: 28px;
+    }
+
+    .hero-contenido h1 {
+        font-size: clamp(56px, 6.9vw, 82px);
+    }
+
+    .franja-contenido {
+        flex-wrap: wrap;
+        padding-block: 22px;
+    }
+}
+
+/* En celulares paso las columnas a filas para que el texto no quede apretado. */
+@media (max-width: 760px) {
+    .contenedor {
+
+        width: min(calc(100% - 34px), var(--ancho-contenido));
+    }
+
+    .cabecera-contenido {
+        justify-content: center;
+        gap: 18px;
+    }
+
+    #menu {
+        /* Pongo los botones del menú de dos en dos cuando ya no caben juntos. */
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        gap: 7px;
+    }
+
+    #menu a {
+        min-height: 44px;
+        padding-inline: 10px;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .hero-grid {
+        /* En móvil la foto de Fulgore aparece antes del texto. */
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        gap: 0;
+    }
+
+    .hero-visual {
+        width: 100%;
+        padding: 22px 0 0;
+    }
+
+    .hero-fotografia {
+        height: 350px;
+    }
+
+    .hero-placa {
+        bottom: 15px;
+    }
+
+    .hero-contenido {
+        width: 100%;
+        padding: 35px 0 61px;
+    }
+
+    .hero-contenido h1 {
+        font-size: clamp(59px, 12vw, 86px);
+    }
+
+    .hero-datos {
+        gap: 17px;
+    }
+
+    .seccion-catalogo {
+        padding-block: 65px 75px;
+    }
+
+    .titulo-seccion {
+        gap: 12px;
+    }
+
+    .titulo-seccion h2 {
+        width: 100%;
+    }
+
+    .tarjetas-grid, .luchadores-grid, .cronologia-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta {
+        min-height: 245px;
+    }
+
+    .editorial-grid, .historia-introduccion {
+
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-block: 66px;
+    }
+
+    .editorial-texto h2 {
+        font-size: clamp(49px, 10vw, 73px);
+    }
+
+    .editorial-media {
+        box-shadow: 11px 12px 0 #07121b;
+    }
+
+    .editorial-media img {
+        aspect-ratio: 1.55;
+    }
+
+    .franja-contenido {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .franja-contenido h2 {
+        width: 100%;
+        white-space: normal;
+    }
+
+    .luchadores-seccion {
+        padding-block: 48px 75px;
+    }
+
+    .luchador-foto {
+        height: 280px;
+    }
+
+    .llamado-contenido {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-block: 48px;
+    }
+
+    .interior-hero {
+        min-height: 350px;
+    }
+
+    .interior-hero::after {
+        font-size: 300px;
+        top: -35px;
+        right: -80px;
+    }
+
+    .interior-contenido h1 {
+        font-size: clamp(60px, 12vw, 90px);
+    }
+
+    .perfil {
+        /* También apilo imagen y descripción en cada perfil. */
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-block: 52px;
+    }
+
+    .perfil-inverso .perfil-imagen {
+
+        order: 0;
+    }
+
+    .perfil-imagen {
+        box-shadow: 12px 13px 0 #101c2b;
+    }
+
+    .perfil-texto h2 {
+        font-size: clamp(70px, 14vw, 105px);
+    }
+
+    .seccion-tabla, .seccion-combos {
+        padding-block: 70px;
+    }
+
+    .cronologia {
+        padding-block: 65px;
+    }
+
+    .combos-sello {
+        display: none;
+    }
+
+    .pie-contenido {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 17px;
+    }
+}
+
+/* Ajusto los espacios para los teléfonos de menor ancho. */
+@media (max-width: 420px) {
+    .marca-simbolo {
+        width: 56px;
+        height: 56px;
+    }
+
+    .marca-nombre {
+        font-size: 24px;
+    }
+
+    .marca-nombre strong {
+        font-size: 27px;
+    }
+
+    .hero-fotografia {
+        height: 285px;
+    }
+
+    .hero-contenido h1 {
+        font-size: 57px;
+    }
+
+    .boton {
+        width: 100%;
+    }
+
+    .hero-datos div {
+        min-width: 85px;
+    }
+
+    .titulo-seccion h2, .franja-contenido h2 {
+        font-size: 44px;
+    }
+}
+
+/* En los más pequeños reduzco títulos largos para evitar desplazamiento horizontal. */
+@media (max-width: 380px) {
+
+    .hero-contenido h1 {
+        font-size: clamp(45px, 13.5vw, 51px);
+    }
+
+    .interior-contenido h1 {
+        font-size: clamp(44px, 13vw, 50px);
+    }
+
+    .perfil-texto h2 {
+        font-size: clamp(54px, 15vw, 62px);
+    }
+
+    .editorial-texto h2 {
+        font-size: clamp(40px, 11.8vw, 45px);
+    }
+
+    .historia-texto h2 {
+        font-size: clamp(39px, 11.6vw, 44px);
+    }
+}
+
+/* Si alguien tiene desactivadas las animaciones en su dispositivo, respeto esa preferencia. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
